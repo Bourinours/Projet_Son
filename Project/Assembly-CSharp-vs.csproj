@@ -44,6 +44,29 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FMOD_Unity\Demo\CallbacksTests.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEvent.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventAsset.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventGroup.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventImportPostProcessor.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventParameter.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventSystem.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventSystemHandle.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodEventSystemHolder.cs" />
+     <Compile Include="Assets\FMOD_Unity\FmodReverb.cs" />
+     <Compile Include="Assets\FMOD_Unity\GlobalReverbZone.cs" />
+     <Compile Include="Assets\FMOD_Unity\ReverbSettings.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodEventAudioClip.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodEventAudioSource.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodEventPool.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodEventPoolManager.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodMusic\FmodMusicCue.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodMusic\FmodMusicEntityBuilder.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodMusic\FmodMusicParameter.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodMusic\FmodMusicSystem.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodReverbManager.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodReverbZone.cs" />
+     <Compile Include="Assets\FMOD_Unity\Runtime\FmodRuntimeEventParameter.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Cluster\VRApplySharedTransform.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Cluster\VRClusterObject.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Cluster\VRShareTransform.cs" />
@@ -75,6 +98,9 @@
  </Reference>
  <Reference Include="MiddleVR_Unity3D">
  <HintPath>Assets\MiddleVR\MiddleVR_Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="FMODUnity">
+ <HintPath>Assets\Plugins\FMODUnity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

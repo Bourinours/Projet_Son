@@ -45,12 +45,23 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\VRCustomEditor.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodAssetRestorationMenus.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodAudioSourcesInspectorWindow.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodEventAssetEditor.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodEventAudioSourceEditor.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodGlobalReverbWindow.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodImportFEVFile.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodReverbZoneEditor.cs" />
+     <Compile Include="Assets\FMOD_Unity\Editor\FmodReverbZoneInspectorWindow.cs" />
      <None Include="Assets\MiddleVR\Assets\Materials\OVRLensCorrection.shader" />
  <Reference Include="MiddleVR_dotNet">
  <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>
  </Reference>
  <Reference Include="MiddleVR_Unity3D">
  <HintPath>Assets\MiddleVR\MiddleVR_Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="FMODUnity">
+ <HintPath>Assets\Plugins\FMODUnity.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
