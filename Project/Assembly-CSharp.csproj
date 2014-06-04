@@ -91,7 +91,7 @@
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRShareFloat.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerMapping.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerSimulation.cs" />
-     <Compile Include="Assets\testInteraction.cs" />
+     <Compile Include="Assets\Script\testInteraction.cs" />
      <None Include="Assets\MiddleVR\Assets\Materials\OVRLensCorrection.shader" />
  <Reference Include="MiddleVR_dotNet">
  <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>

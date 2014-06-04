@@ -9,6 +9,8 @@ using MiddleVR_Unity3D;
 
 public class VRWandInteraction : MonoBehaviour {
 
+	public GameObject WandRay;
+	public string JoystickName = "RazerHydra.Joystick0";
     public float RayLength = 2;
 
     public bool Highlight = true;
@@ -19,18 +21,18 @@ public class VRWandInteraction : MonoBehaviour {
 
     public GameObject ObjectInHand = null;
     public GameObject CurrentObject = null;
-
     
     bool m_ObjectWasKinematic = true;
 
-    private vrButtons m_Buttons = null;
+    private vrJoystick m_Buttons = null;
+	private uint m_MainButton = 0;
     private bool      m_SearchedButtons = false;
 
     private GameObject m_Ray = null;
 
 	// Use this for initialization
 	void Start () {
-        m_Ray = GameObject.Find("WandRay");
+        m_Ray = WandRay;
 
         if (m_Ray != null)
         {
@@ -82,11 +84,13 @@ public class VRWandInteraction : MonoBehaviour {
         {
             if( state )
             {
+				CurrentObject.renderer.material.color = hCol;
                 hobj.renderer.material.color = hCol;
             }
             else
             {
-                //CurrentObject.renderer.material.color = Color.white;
+				if (CurrentObject != null)
+					CurrentObject.renderer.material.color = Color.white;
                 hobj.renderer.material.color = Color.white;
             }
         }
@@ -128,21 +132,8 @@ public class VRWandInteraction : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
-        if (m_Buttons == null)
-        {
-            m_Buttons = MiddleVR.VRDeviceMgr.GetWandButtons();
-        }
-        
-        if( m_Buttons == null )
-        {
-            if (m_SearchedButtons == false)
-            {
-                //MiddleVRTools.Log("[~] VRWandInteraction: Wand buttons undefined. Please specify Wand Buttons in the configuration tool.");
-                m_SearchedButtons = true;
-            }
-        }
-
+	void Update () 
+	{
         Collider hit = GetClosestHit();
 
         if( hit != null )
@@ -172,17 +163,29 @@ public class VRWandInteraction : MonoBehaviour {
 
         //MiddleVRTools.Log("Current : " + CurrentObject);
 
+		if (m_Buttons == null)
+		{
+			m_Buttons = MiddleVR.VRDeviceMgr.GetJoystick(JoystickName);
+		}
+
+		if (m_Buttons == null)
+		{
+			if (m_SearchedButtons == false)
+			{
+				//MiddleVRTools.Log("[~] VRWandInteraction: Wand buttons undefined. Please specify Wand Buttons in the configuration tool.");
+				m_SearchedButtons = true;
+			}
+		}
+
         if (m_Buttons != null && CurrentObject != null )
         {
-            uint MainButton = MiddleVR.VRDeviceMgr.GetWandButton0();
-
             VRActor script = CurrentObject.GetComponent<VRActor>();
 
             //MiddleVRTools.Log("Trying to take :" + CurrentObject.name);
             if (script != null)
             {
                 // Grab
-                if (m_Buttons.IsToggled(MainButton))
+                if (m_Buttons.IsButtonToggled(m_MainButton))
                 {
                     if (script.Grabable)
                     {
@@ -191,13 +194,13 @@ public class VRWandInteraction : MonoBehaviour {
                 }
 
                 // Release
-                if (m_Buttons.IsToggled(MainButton, false) && ObjectInHand != null)
+                if (m_Buttons.IsButtonToggled(m_MainButton, false) && ObjectInHand != null)
                 {
                     Ungrab();
                 }
 
                 // Action
-                if (((!RepeatAction && m_Buttons.IsToggled(MainButton)) || (RepeatAction&& m_Buttons.IsPressed(MainButton))))
+                if (((!RepeatAction && m_Buttons.IsButtonToggled(m_MainButton)) || (RepeatAction&& m_Buttons.IsButtonPressed(m_MainButton))))
                 {
                     CurrentObject.SendMessage("VRAction", SendMessageOptions.DontRequireReceiver);
                 }
