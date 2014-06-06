@@ -92,8 +92,15 @@
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerMapping.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerSimulation.cs" />
      <Compile Include="Assets\Script\ActualStatus.cs" />
+     <Compile Include="Assets\Script\Button.cs" />
+     <Compile Include="Assets\Script\ButtonOnOFF.cs" />
+     <Compile Include="Assets\Script\ButtonValue.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\Interaction.cs" />
+     <Compile Include="Assets\Script\Lever.cs" />
      <Compile Include="Assets\Script\MainMenu.cs" />
-     <Compile Include="Assets\Script\testInteraction.cs" />
+     <Compile Include="Assets\Script\Plug.cs" />
+     <Compile Include="Assets\Script\Potentio.cs" />
      <None Include="Assets\MiddleVR\Assets\Materials\OVRLensCorrection.shader" />
  <Reference Include="MiddleVR_dotNet">
  <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>
