@@ -1,7 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\MainMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FMOD_Unity\Runtime\FmodReverbManager.cs">
     <Files>
+      <File FileName="Assets\FMOD_Unity\Runtime\FmodReverbManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\MainMenu.cs" Line="26" Column="72" />
     </Files>
   </MonoDevelop.Ide.Workbench>
