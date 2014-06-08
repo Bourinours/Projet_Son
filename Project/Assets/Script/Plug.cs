@@ -9,4 +9,9 @@ public class Plug : Interaction
 		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Playing)
 			impact.Stop();
 	}
+
+    public override bool victoryState()
+    {
+        return base.victoryState();
+    }
 }

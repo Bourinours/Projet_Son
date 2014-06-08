@@ -27,5 +27,10 @@ public class ButtonValue : Interaction
 		value += incr;
 		obj.SetParameterValue(paramSound, Mathf.Clamp(value, obj.GetParameterMinRange(paramSound), obj.GetParameterMaxRange(paramSound)));
 	}
+
+    public override bool victoryState()
+    {
+        return base.victoryState();
+    }
 }
 

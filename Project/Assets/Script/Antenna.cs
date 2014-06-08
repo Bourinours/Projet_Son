@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Potentio : Interaction
+public class Antenna : Interaction 
 {
     public override bool victoryState()
     {

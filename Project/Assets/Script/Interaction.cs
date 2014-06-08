@@ -49,4 +49,9 @@ public class Interaction : MonoBehaviour
 		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Stopped)
 			impact.Play();
 	}
+
+    public virtual bool victoryState()
+    {
+        return true;
+    }
 }

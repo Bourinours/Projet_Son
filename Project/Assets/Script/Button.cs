@@ -12,4 +12,9 @@ public class Button : Interaction
 			this.activated = true;
 		}
 	}
+
+    public override bool victoryState()
+    {
+        return base.victoryState();
+    }
 }
