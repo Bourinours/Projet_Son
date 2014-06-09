@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour {
             return;
         for (int i = 0; mObjects[i].victoryState(); i++)
         {
-            mObjects[i].activeActionMutex();
             if (i == (mObjects.Count - 1))
             {
                 mEnd = true;
