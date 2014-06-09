@@ -3,8 +3,21 @@ using System.Collections;
 
 public class Lever : Interaction
 {
+    private bool mState = false; // false = off / true = On
+
+    public void VRAction()
+    {
+        if (mActionMutex)
+            return;
+        Debug.Log("VRAction actived");
+        this.activated = true;
+        mState = true;
+    }
+
     public override bool victoryState()
     {
-        return base.victoryState();
+        if (mState)
+            return true;
+        return false;
     }
 }
