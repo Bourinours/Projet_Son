@@ -251,8 +251,8 @@ public class VRManagerScript : MonoBehaviour
 #else
             QualitySettings.SetQualityLevel(ForceQualityIndex);
 #endif
-            bool useOpenGLQuadbuffer = MiddleVR.VRDisplayMgr.GetActiveViewport(0).GetStereo() && (MiddleVR.VRDisplayMgr.GetActiveViewport(0).GetStereoMode()==0); //VRStereoMode_QuadBuffer = 0
-            if( !Application.isEditor && ( useOpenGLQuadbuffer || MiddleVR.VRClusterMgr.GetForceOpenGLConversion() ) )
+            //bool useOpenGLQuadbuffer = MiddleVR.VRDisplayMgr.GetActiveViewport(0).GetStereo() && (MiddleVR.VRDisplayMgr.GetActiveViewport(0).GetStereoMode()==0); //VRStereoMode_QuadBuffer = 0
+            if( !Application.isEditor && (/* useOpenGLQuadbuffer || */MiddleVR.VRClusterMgr.GetForceOpenGLConversion() ) )
             {
                 m_NeedDelayedRenderingReset = true;
                 m_RenderingResetDelay = 1;

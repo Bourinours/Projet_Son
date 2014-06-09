@@ -6,6 +6,7 @@ public class Potentio : Interaction
     public FmodEventAudioSource obj;
     public string paramSound = "param01";
     private float mPrimRot = 0.0f;
+	private float mIncr = 0;
 
     private void Start()
     {
@@ -30,13 +31,11 @@ public class Potentio : Interaction
         if (lRot < 10.0f && mPrimRot > 350.0f)
             mPrimRot = mPrimRot - 360.0f;
         this.UpdateValueObj(lRot - mPrimRot);
-		if (source != null)
-            source.Play();
         obj.Play();
         mPrimRot = lRot;
     }
 
-    public void VRAction()
+    public override void VRAction()
     {
         if (mActionMutex)
             return;
@@ -51,7 +50,13 @@ public class Potentio : Interaction
         if (obj == null)
             return;
         value = obj.GetParameterValue(paramSound);
-        value += val;
+		mIncr += Mathf.Abs(val);
+		if (source != null && mIncr > 1)
+		{
+			source.Play();
+			mIncr = 0;
+		}
+        value += (val / 10);
         obj.SetParameterValue(paramSound, Mathf.Clamp(value, obj.GetParameterMinRange(paramSound), obj.GetParameterMaxRange(paramSound)));
     }
 

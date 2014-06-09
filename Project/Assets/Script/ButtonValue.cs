@@ -4,16 +4,19 @@ using System.Collections;
 public class ButtonValue : Interaction
 {
 	public float incr = 1;
-	public FmodEventAudioSource obj;
+	public FmodEventAudioSource objSound;
+	public GameObject obj;
 	public string paramSound = "param01";
-    private int mWantedValue;
 
     private void Start()
     {
-        mWantedValue = Random.Range(0, 10);
+		if (objSound != null)
+		{
+			objSound.playOnAwake = true;
+		}
     }
 
-	public void VRAction()
+	public override void VRAction()
 	{
         if (mActionMutex)
             return;
@@ -31,14 +34,14 @@ public class ButtonValue : Interaction
 
 		if (obj == null)
 			return;
-		value = obj.GetParameterValue(paramSound);
+		value = objSound.GetParameterValue(paramSound);
 		value += incr;
-		obj.SetParameterValue(paramSound, Mathf.Clamp(value, obj.GetParameterMinRange(paramSound), obj.GetParameterMaxRange(paramSound)));
+		objSound.SetParameterValue(paramSound, Mathf.Clamp(value, objSound.GetParameterMinRange(paramSound), objSound.GetParameterMaxRange(paramSound)));
 	}
 
     public override bool victoryState()
     {
-        if (obj.GetParameterValue(paramSound) == mWantedValue)
+		if (obj.GetComponent<Boudoir>() != null && obj.GetComponent<Boudoir>().CheckValue())
             return true;
         return false;
     }

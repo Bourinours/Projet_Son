@@ -27,12 +27,14 @@ public class GameManager : MonoBehaviour {
     };
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
         mState = eState._ETAP1_;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
         if (mBegin)
             begin();
         if (!mEnd)
@@ -44,8 +46,10 @@ public class GameManager : MonoBehaviour {
     private void begin()
     {
         source.SetSourceEvent(mEtap1[0]);
-        source.Play();
+		source.Play();
         mBegin = false;
+		mObjects[0].desactiveActionMutex();
+		mObjects[1].desactiveActionMutex();
     }
 
     private void updateState()
@@ -74,6 +78,8 @@ public class GameManager : MonoBehaviour {
             source.SetSourceEvent(mEtap2[0]);
             source.Play();
             mState = eState._ETAP2_;
+			mObjects[2].desactiveActionMutex();
+			mObjects[3].desactiveActionMutex();
         }
     }
 
@@ -87,6 +93,8 @@ public class GameManager : MonoBehaviour {
             source.SetSourceEvent(mEtap3[0]);
             source.Play();
             mState = eState._ETAP3_;
+			mObjects[4].desactiveActionMutex();
+			mObjects[5].desactiveActionMutex();
         }
     }
 
@@ -100,6 +108,8 @@ public class GameManager : MonoBehaviour {
             source.SetSourceEvent(mEtap4[0]);
             source.Play();
             mState = eState._ETAP4_;
+			mObjects[6].desactiveActionMutex();
+			mObjects[7].desactiveActionMutex();
         }
     }
 
@@ -113,6 +123,7 @@ public class GameManager : MonoBehaviour {
             source.SetSourceEvent(mEtap5[0]);
             source.Play();
             mState = eState._ETAP5_;
+			mObjects[8].desactiveActionMutex();
         }
     }
 
@@ -125,6 +136,8 @@ public class GameManager : MonoBehaviour {
             source.SetSourceEvent(mEtap6[0]);
             source.Play();
             mState = eState._ETAP6_;
+			mObjects[9].desactiveActionMutex();
+			mObjects[10].desactiveActionMutex();
         }
     }
 

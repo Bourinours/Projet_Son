@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ButtonOnOFF : Interaction
 {
-	public void VRAction()
+	public override void VRAction()
 	{
 		Debug.Log("VRAction actived");
 		if (source != null)

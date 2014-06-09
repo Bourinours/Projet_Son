@@ -21,8 +21,6 @@ public class VRWandInteraction : MonoBehaviour {
 
     public GameObject ObjectInHand = null;
     public GameObject CurrentObject = null;
-    
-    bool m_ObjectWasKinematic = true;
 
     private vrJoystick m_Buttons = null;
 	private uint m_MainButton = 0;

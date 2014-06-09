@@ -15,7 +15,7 @@ public class Interaction : MonoBehaviour
 
 	#region Protected members
 
-	protected bool mActionMutex = false;
+	protected bool mActionMutex = true;
 
 	#endregion
 
@@ -29,11 +29,6 @@ public class Interaction : MonoBehaviour
 		{
 			impact.playOnAwake = false;
 		}
-	}
-
-	protected void Update()
-	{
-
 	}
 
 	public virtual void VRAction()
@@ -69,4 +64,9 @@ public class Interaction : MonoBehaviour
     {
         mActionMutex = true;
     }
+
+	public void desactiveActionMutex()
+	{
+		mActionMutex = false;
+	}
 }

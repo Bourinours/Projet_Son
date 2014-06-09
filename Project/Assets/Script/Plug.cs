@@ -5,8 +5,9 @@ public class Plug : Interaction
 {
 	public int index = 1;
 	public string paramSound = "param01";
+	private bool mState = false;
 
-	public virtual void VRAction()
+	public override void VRAction()
 	{
 		if (activated || wandGrab.GetComponent<Cable>().index == 0 || mActionMutex)
 			return;
@@ -26,12 +27,13 @@ public class Plug : Interaction
 			this.activated = true;
 			wandGrab.GetComponent<Cable>().index = 0;
 			this.impact.Stop();
+			this.mState = true;
 		}
 		else
 			this.source.SetParameterValue(paramSound, 5);
 	}
 
-	public virtual void OnTriggerEnter(Collider col)
+	public override void OnTriggerEnter(Collider col)
 	{
 		Cable tmp = col.transform.parent.gameObject.GetComponent<Cable>();
 
@@ -44,7 +46,7 @@ public class Plug : Interaction
 			impact.Play();
 		}
 	}
-	public virtual void OnTriggerExit(Collider col)
+	public void OnTriggerExit(Collider col)
 	{
         if (mActionMutex)
             return;
@@ -59,6 +61,8 @@ public class Plug : Interaction
 
     public override bool victoryState()
     {
-        return base.victoryState();
+		if (mState)
+			return true;
+		return false;
     }
 }

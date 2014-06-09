@@ -93,6 +93,7 @@
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerSimulation.cs" />
      <Compile Include="Assets\Script\ActualStatus.cs" />
      <Compile Include="Assets\Script\Antenna.cs" />
+     <Compile Include="Assets\Script\Boudoir.cs" />
      <Compile Include="Assets\Script\Button.cs" />
      <Compile Include="Assets\Script\ButtonOnOFF.cs" />
      <Compile Include="Assets\Script\ButtonValue.cs" />

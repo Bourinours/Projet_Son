@@ -5,7 +5,7 @@ public class Button : Interaction
 {
     private bool mState = false; // false = off / true = On
 
-	public void VRAction()
+	public override void VRAction()
 	{
         if (mActionMutex)
             return;
