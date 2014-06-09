@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ButtonValue : Interaction
 {
-	public int incr = 1;
+	public float incr = 1;
 	public FmodEventAudioSource obj;
 	public string paramSound = "param01";
     private int mWantedValue;

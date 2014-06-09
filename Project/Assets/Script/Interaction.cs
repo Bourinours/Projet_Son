@@ -9,7 +9,13 @@ public class Interaction : MonoBehaviour
 	public bool activated = false;
 	public FmodEventAudioSource source;
 	public FmodEventAudioSource impact;
-    protected bool mActionMutex = false;
+	public GameObject wandGrab = null;
+
+	#endregion
+
+	#region Protected members
+
+	protected bool mActionMutex = false;
 
 	#endregion
 

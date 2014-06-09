@@ -98,36 +98,29 @@ public class VRWandInteraction : MonoBehaviour {
 
     private void Grab( GameObject iObject )
     {
+		Interaction inte;
+
         //MiddleVRTools.Log("Take :" + CurrentObject.name);
 
         ObjectInHand = iObject;
-        ObjectInHand.transform.parent = transform.parent;
-
-        if (ObjectInHand.rigidbody != null)
-        {
-            m_ObjectWasKinematic = ObjectInHand.rigidbody.isKinematic;
-            ObjectInHand.rigidbody.isKinematic = true;
-        }
-
+        //ObjectInHand.transform.parent = transform.parent;
+		inte = iObject.GetComponent<Interaction>();
+		if (inte != null)
+			inte.wandGrab = this.gameObject;
         HighlightObject(ObjectInHand, true, GrabColor);
     }
 
     private void Ungrab()
     {
-        //MiddleVRTools.Log("Release : " + ObjectInHand);
+		Interaction inte;
+		//MiddleVRTools.Log("Release : " + ObjectInHand);
 
-        ObjectInHand.transform.parent = null;
-
-        if (ObjectInHand.rigidbody != null)
-        {
-            if (!m_ObjectWasKinematic)
-                ObjectInHand.rigidbody.isKinematic = false;
-        }
-
-        ObjectInHand = null;
-
-        HighlightObject(CurrentObject, false, HighlightColor);
-
+		//ObjectInHand.transform.parent = transform.parent;
+		inte = ObjectInHand.GetComponent<Interaction>();
+		if (inte != null)
+			inte.wandGrab = null;
+		ObjectInHand = null;
+		HighlightObject(CurrentObject, false, HighlightColor);
         CurrentObject = null;
     }
 
