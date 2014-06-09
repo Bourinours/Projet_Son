@@ -14,6 +14,7 @@ public class Button : Interaction
 			source.Play();
         this.activated = true;
         mState = true;
+		this.ActiveDialog();
 	}
 
     public override bool victoryState()

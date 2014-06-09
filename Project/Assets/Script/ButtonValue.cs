@@ -45,5 +45,13 @@ public class ButtonValue : Interaction
             return true;
         return false;
     }
+
+	public override void OnTriggerEnter(Collider col)
+	{
+		if (mActionMutex)
+			return;
+		Debug.Log("TriggerEnter " + col.name);
+		this.ActiveDialog();
+	}
 }
 

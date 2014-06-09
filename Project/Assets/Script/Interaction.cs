@@ -10,12 +10,14 @@ public class Interaction : MonoBehaviour
 	public FmodEventAudioSource source;
 	public FmodEventAudioSource impact;
 	public GameObject wandGrab = null;
+	public GameObject charactere;
+	public FmodEvent eventDialog;
 
 	#endregion
 
 	#region Protected members
 
-	protected bool mActionMutex = true;
+	public bool mActionMutex = true;
 
 	#endregion
 
@@ -47,6 +49,8 @@ public class Interaction : MonoBehaviour
 
 	public virtual void OnTriggerEnter(Collider col)
 	{
+		if (mActionMutex)
+			return;
 		Debug.Log("TriggerEnter " + col.name);
 		if (impact != null)// && impact.CurrentStatus == FmodEventAudioSource.Status.Stopped)
 		{
@@ -68,5 +72,17 @@ public class Interaction : MonoBehaviour
 	public void desactiveActionMutex()
 	{
 		mActionMutex = false;
+	}
+
+	protected virtual void ActiveDialog()
+	{
+		if (this.charactere == null)
+			return;
+		GameManager tmp = this.charactere.GetComponent<GameManager>();
+		if (tmp == null)
+			return;
+		if (impact != null)
+			impact.Stop();
+		tmp.SetDialog(eventDialog, true);
 	}
 }

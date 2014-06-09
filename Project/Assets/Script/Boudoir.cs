@@ -5,6 +5,8 @@ public class Boudoir : MonoBehaviour
 {
 	public int wantedValue;
 	public FmodEventAudioSource source;
+	public GameObject charactere;
+	public FmodEvent eventDialog;
 
 	// Use this for initialization
 	void Start () 
@@ -20,7 +22,19 @@ public class Boudoir : MonoBehaviour
 	public bool CheckValue()
 	{
 		if (source != null && source.GetParameterValue("param01") == wantedValue)
+		{
+			if (eventDialog != null)
+			{
+				if (this.charactere == null)
+					return true;
+				GameManager tmp = this.charactere.GetComponent<GameManager>();
+				if (tmp == null)
+					return true;
+				tmp.SetDialog(eventDialog, true);
+				eventDialog = null;
+			}
 			return true;
+		}
 		return false;
 	}
 }

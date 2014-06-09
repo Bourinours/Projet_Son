@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public List<FmodEvent> mEtap6;
     private eState mState;
     private bool mBegin = true;
+	private bool dialogue = false;
     
     private bool mEnd = false;
     private enum eState
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	void Start () 
 	{
         mState = eState._ETAP1_;
+		this.SetDialog(mEtap1[0]);
 	}
 	
 	// Update is called once per frame
@@ -41,31 +43,69 @@ public class GameManager : MonoBehaviour {
             updateState();
         else
             end();
+		if (source.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+			dialogue = false;
 	}
 
     private void begin()
     {
-        source.SetSourceEvent(mEtap1[0]);
-		source.Play();
-        mBegin = false;
-		mObjects[0].desactiveActionMutex();
-		mObjects[1].desactiveActionMutex();
-    }
+		if (source.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+		{
+			dialogue = false;
+			mBegin = false;
+			mObjects[0].desactiveActionMutex();
+			mObjects[1].desactiveActionMutex();
+		}
+	}
 
     private void updateState()
     {
-        if (mState == eState._ETAP1_)
-            etap1();
-        else if (mState == eState._ETAP2_)
-            etap2();
-        else if (mState == eState._ETAP3_)
-            etap3();
-        else if (mState == eState._ETAP4_)
-            etap4();
-        else if (mState == eState._ETAP5_)
-            etap5();
-        else if (mState == eState._ETAP6_)
-            etap6();
+		if (mState == eState._ETAP1_)
+		{
+			etap1();
+		}
+		else if (mState == eState._ETAP2_)
+		{
+			if (dialogue == false)
+			{
+				mObjects[2].desactiveActionMutex();
+				mObjects[3].desactiveActionMutex();
+			}
+			etap2();
+		}
+		else if (mState == eState._ETAP3_)
+		{
+			if (dialogue == false)
+			{
+				mObjects[4].desactiveActionMutex();
+				mObjects[5].desactiveActionMutex();
+			}
+			etap3();
+		}
+		else if (mState == eState._ETAP4_)
+		{
+			if (dialogue == false)
+			{
+				mObjects[6].desactiveActionMutex();
+				mObjects[7].desactiveActionMutex();
+			}
+			etap4();
+		}
+		else if (mState == eState._ETAP5_)
+		{
+			if (dialogue == false)
+				mObjects[8].desactiveActionMutex();
+			etap5();
+		}
+		else if (mState == eState._ETAP6_)
+		{
+			if (dialogue == false)
+			{
+				mObjects[9].desactiveActionMutex();
+				mObjects[10].desactiveActionMutex();
+			}
+			etap6();
+		}
     }
 
     private void etap1()
@@ -74,12 +114,11 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[0].activeActionMutex();
             mObjects[1].activeActionMutex();
-            source.Stop();
-            source.SetSourceEvent(mEtap2[0]);
-            source.Play();
-            mState = eState._ETAP2_;
-			mObjects[2].desactiveActionMutex();
-			mObjects[3].desactiveActionMutex();
+			if (dialogue == false)
+			{
+				this.SetDialog(mEtap2[0]);
+				mState = eState._ETAP2_;
+			}
         }
     }
 
@@ -89,12 +128,11 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[2].activeActionMutex();
             mObjects[3].activeActionMutex();
-            source.Stop();
-            source.SetSourceEvent(mEtap3[0]);
-            source.Play();
-            mState = eState._ETAP3_;
-			mObjects[4].desactiveActionMutex();
-			mObjects[5].desactiveActionMutex();
+			if (dialogue == false)
+			{
+				this.SetDialog(mEtap3[0]);
+				mState = eState._ETAP3_;
+			}
         }
     }
 
@@ -104,12 +142,14 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[4].activeActionMutex();
             mObjects[5].activeActionMutex();
-            source.Stop();
-            source.SetSourceEvent(mEtap4[0]);
-            source.Play();
-            mState = eState._ETAP4_;
-			mObjects[6].desactiveActionMutex();
-			mObjects[7].desactiveActionMutex();
+			if (dialogue == false)
+			{
+				if (source.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+				{
+					this.SetDialog(mEtap4[0]);
+					mState = eState._ETAP4_;
+				}
+			}
         }
     }
 
@@ -119,11 +159,11 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[6].activeActionMutex();
             mObjects[7].activeActionMutex();
-            source.Stop();
-            source.SetSourceEvent(mEtap5[0]);
-            source.Play();
-            mState = eState._ETAP5_;
-			mObjects[8].desactiveActionMutex();
+			if (dialogue == false)
+			{	
+				this.SetDialog(mEtap5[0]);
+				mState = eState._ETAP5_;
+			}
         }
     }
 
@@ -132,12 +172,11 @@ public class GameManager : MonoBehaviour {
         if (mObjects[8].victoryState())
         {
             mObjects[8].activeActionMutex();
-            source.Stop();
-            source.SetSourceEvent(mEtap6[0]);
-            source.Play();
-            mState = eState._ETAP6_;
-			mObjects[9].desactiveActionMutex();
-			mObjects[10].desactiveActionMutex();
+			if (dialogue == false)
+			{
+				this.SetDialog(mEtap6[0]);
+				mState = eState._ETAP6_;
+			}
         }
     }
 
@@ -159,4 +198,17 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("End");
     }
+
+	public bool SetDialog(FmodEvent eventDialog, bool stop = false)
+	{
+		if (dialogue == false || stop)
+		{
+			source.Stop();
+			source.SetSourceEvent(eventDialog);
+			source.Play();
+			dialogue = true;
+			return true;
+		}
+		return false;
+	}
 }
