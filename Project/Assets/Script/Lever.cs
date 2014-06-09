@@ -12,6 +12,8 @@ public class Lever : Interaction
         Debug.Log("VRAction actived");
         this.activated = true;
         mState = true;
+		if (source != null)
+			source.Play ();
     }
 
     public override bool victoryState()

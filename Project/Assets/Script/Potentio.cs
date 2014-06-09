@@ -30,6 +30,8 @@ public class Potentio : Interaction
         if (lRot < 10.0f && mPrimRot > 350.0f)
             mPrimRot = mPrimRot - 360.0f;
         this.UpdateValueObj(lRot - mPrimRot);
+		if (source != null)
+            source.Play();
         obj.Play();
         mPrimRot = lRot;
     }
@@ -40,8 +42,6 @@ public class Potentio : Interaction
             return;
 		mPrimRot = wandGrab.transform.eulerAngles.z;
         Debug.Log("VRAction actived");
-        if (source != null)
-            source.Play();
     }
 
     private void UpdateValueObj(float val)

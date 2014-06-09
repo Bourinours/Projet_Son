@@ -38,8 +38,11 @@ public class Plug : Interaction
 		if (activated || (tmp != null && tmp.index == 0) || mActionMutex)
 			return;
 		Debug.Log("TriggerEnter " + col.name);
-		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+		if (impact != null)
+		{
+			impact.Stop ();
 			impact.Play();
+		}
 	}
 	public virtual void OnTriggerExit(Collider col)
 	{
@@ -47,7 +50,9 @@ public class Plug : Interaction
             return;
 		Debug.Log("TriggerExit " + col.name);
 		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Playing)
-			impact.Stop();
+		{
+			impact.KeyOffOnParameter("Magnet");
+		}
 		if (source != null && !activated)
 			source.Stop();
 	}

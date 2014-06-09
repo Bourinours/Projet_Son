@@ -53,8 +53,11 @@ public class Interaction : MonoBehaviour
 	public virtual void OnTriggerEnter(Collider col)
 	{
 		Debug.Log("TriggerEnter " + col.name);
-		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+		if (impact != null)// && impact.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+		{
+			impact.Stop ();
 			impact.Play();
+		}
 	}
 
     public virtual bool victoryState()
