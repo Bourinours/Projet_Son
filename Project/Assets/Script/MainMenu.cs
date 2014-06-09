@@ -6,7 +6,8 @@ public class MainMenu : MonoBehaviour {
 	//VARIABLES
 	public float timeBeforePlayIntro;
 	bool bIntroIsPlaying = false;
-	
+	public FmodEventAudioSource source;
+
 	//TEXTURES
 	public Texture2D background;
 	public Texture2D loading;
@@ -50,7 +51,7 @@ public class MainMenu : MonoBehaviour {
 		}
 		
 		//Check for button input (DEBUG ONLY !!! - To replace with Wands buttons)
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && source.CurrentStatus == FmodEventAudioSource.Status.Stopped)
 		{
 			//Load game level
 			Application.LoadLevel("Main");

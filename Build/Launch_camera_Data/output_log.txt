@@ -1,0 +1,137 @@
+Initialize engine version: 4.2.0f4 (38efbd14869d)
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.3788]
+    Renderer: NVIDIA GeForce GTX 770
+    Vendor:   NVIDIA
+    VRAM:     1990 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 DF24=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\MiddleVR_dotNet.dll (this message is harmless)
+Loading E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\MiddleVR_dotNet.dll into Unity Child Domain
+Platform assembly: E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\MiddleVR_Unity3D.dll (this message is harmless)
+Loading E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\MiddleVR_Unity3D.dll into Unity Child Domain
+Platform assembly: E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\FMODUnity.dll (this message is harmless)
+Loading E:\Users\akamu\Documents\Project\Unity\Projet son\Projet_Son\Build\Launch_camera_Data\Managed\FMODUnity.dll into Unity Child Domain
+- Completed reload, in  0.042 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+UnloadTime: 5.210188 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 470.
+Total: 0.612215 ms (FindLiveObjects: 0.015204 ms CreateObjectMapping: 0.009308 ms MarkObjects: 0.176248 ms  DeleteObjects: 0.084400 ms)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+FMOD_Unity : Event 'Machines' was stopped but was not started.
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+FMOD_Unity : Event 'Machines' was stopped but was not started.
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+VRAction actived
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+FMOD_Unity : Event 'Button_HF_Rnd' was stopped but was not started.
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+FMOD_Unity : Event 'Button_Gen_Rnd' was stopped but was not started.
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+VRAction actived
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+VRAction actived
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+FMOD_Unity : Event 'Bidon' was stopped but was not started.
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+TriggerEnter WandRay
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
