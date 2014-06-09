@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
+    public FmodEventAudioSource source;
     public List<Interaction> mObjects;
     private bool mEnd = false;
 
@@ -22,17 +23,6 @@ public class GameManager : MonoBehaviour {
 
     private void updateState()
     {
-        if (mObjects.Count <= 0)
-            return;
-        for (int i = 0; mObjects[i].victoryState(); i++)
-        {
-            if (i == (mObjects.Count - 1))
-            {
-                mEnd = true;
-                disactiveObjects();
-                break;
-            }
-        }
     }
 
     private void end()
