@@ -6,7 +6,12 @@ public class GameManager : MonoBehaviour {
 
     public FmodEventAudioSource source;
     public List<Interaction> mObjects;
-    public List<FmodEvent> mEvent;
+    public List<FmodEvent> mEtap1;
+    public List<FmodEvent> mEtap2;
+    public List<FmodEvent> mEtap3;
+    public List<FmodEvent> mEtap4;
+    public List<FmodEvent> mEtap5;
+    public List<FmodEvent> mEtap6;
     private bool mEnd = false;
 
 	// Use this for initialization
@@ -24,7 +29,7 @@ public class GameManager : MonoBehaviour {
 
     private void updateState()
     {
-        source.SetSourceEvent(mEvent[0]);
+//        source.SetSourceEvent(mEvent[0]);
     }
 
     private void end()
