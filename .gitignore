@@ -2,6 +2,9 @@
 ## Eclipse
 #################
 
+#Ignore file UNITY
+Project/Library/
+
 *.pydevproject
 .project
 .metadata
