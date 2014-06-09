@@ -15,6 +15,8 @@ public class ButtonValue : Interaction
 
 	public void VRAction()
 	{
+        if (mActionMutex)
+            return;
 		Debug.Log("VRAction actived");
 		if (source != null)
 		{

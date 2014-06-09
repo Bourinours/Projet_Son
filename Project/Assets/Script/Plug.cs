@@ -8,7 +8,7 @@ public class Plug : Interaction
 
 	public virtual void VRAction()
 	{
-		if (activated || wandGrab.GetComponent<Cable>().index == 0)
+		if (activated || wandGrab.GetComponent<Cable>().index == 0 || mActionMutex)
 			return;
 		Debug.Log("VRAction actived");
 		this.checkValue();
@@ -35,7 +35,7 @@ public class Plug : Interaction
 	{
 		Cable tmp = col.transform.parent.gameObject.GetComponent<Cable>();
 
-		if (activated || (tmp != null && tmp.index == 0))
+		if (activated || (tmp != null && tmp.index == 0) || mActionMutex)
 			return;
 		Debug.Log("TriggerEnter " + col.name);
 		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Stopped)
@@ -43,6 +43,8 @@ public class Plug : Interaction
 	}
 	public virtual void OnTriggerExit(Collider col)
 	{
+        if (mActionMutex)
+            return;
 		Debug.Log("TriggerExit " + col.name);
 		if (impact != null && impact.CurrentStatus == FmodEventAudioSource.Status.Playing)
 			impact.Stop();
