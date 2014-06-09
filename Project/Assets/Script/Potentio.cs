@@ -9,7 +9,7 @@ public class Potentio : Interaction
 
     private void Start()
     {
-        float value = 0.0f;
+        float value = 4.0f;
         while (value >= 4.0f && value <= 7.0f)
             value = Random.Range(3.0f, 8.0f);
         obj.SetParameterValue(paramSound, Mathf.Clamp(value, obj.GetParameterMinRange(paramSound), obj.GetParameterMaxRange(paramSound)));
@@ -24,7 +24,7 @@ public class Potentio : Interaction
             mPrimRot = 0.0f;
             return;
         }
-        float lRot = wandGrab.transform.localRotation.z;
+		float lRot = wandGrab.transform.eulerAngles.z;
         if (lRot > 350.0f && mPrimRot < 10.0f)
             mPrimRot = 360.0f + mPrimRot;
         if (lRot < 10.0f && mPrimRot > 350.0f)
@@ -38,7 +38,7 @@ public class Potentio : Interaction
     {
         if (mActionMutex)
             return;
-        mPrimRot = wandGrab.transform.localRotation.z;
+		mPrimRot = wandGrab.transform.eulerAngles.z;
         Debug.Log("VRAction actived");
         if (source != null)
             source.Play();

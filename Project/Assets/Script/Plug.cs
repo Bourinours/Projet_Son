@@ -8,7 +8,7 @@ public class Plug : Interaction
 
 	public virtual void VRAction()
 	{
-		if (activated)
+		if (activated || wandGrab.GetComponent<Cable>().index == 0)
 			return;
 		Debug.Log("VRAction actived");
 		this.checkValue();
