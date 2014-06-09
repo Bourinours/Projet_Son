@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
             return;
         for (int i = 0; mObjects[i].victoryState(); i++)
         {
+            mObjects[i].activeActionMutex();
             if (i == (mObjects.Count - 1))
             {
                 mEnd = true;
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour {
     private void disactiveObjects()
     {
         for (int i = 0; i < mObjects.Count; i++)
+        {
             mObjects[i].enabled = false;
+        }
     }
 }

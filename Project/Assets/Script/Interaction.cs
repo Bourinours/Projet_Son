@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour
 	public bool activated = false;
 	public FmodEventAudioSource source;
 	public FmodEventAudioSource impact;
+    protected bool mActionMutex = false;
 
 	#endregion
 
@@ -53,5 +54,10 @@ public class Interaction : MonoBehaviour
     public virtual bool victoryState()
     {
         return true;
+    }
+
+    public void activeActionMutex()
+    {
+        mActionMutex = true;
     }
 }
