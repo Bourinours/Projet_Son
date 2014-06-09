@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public FmodEventAudioSource source;
     public List<Interaction> mObjects;
+    FmodEventAsset lol;
     private bool mEnd = false;
 
 	// Use this for initialization
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour {
 
     private void updateState()
     {
+        Debug.Log("lol");
+        source.SetSourceEvent(lol.getEventWithName("Button_Gen_Rnd"));
     }
 
     private void end()
