@@ -25,6 +25,10 @@ public class Potentio : Interaction
             return;
         }
         float lRot = wandGrab.transform.localRotation.z;
+        if (lRot > 350.0f && mPrimRot < 10.0f)
+            mPrimRot = 360.0f + mPrimRot;
+        if (lRot < 10.0f && mPrimRot > 350.0f)
+            mPrimRot = mPrimRot - 360.0f;
         this.UpdateValueObj(lRot - mPrimRot);
         obj.Play();
         mPrimRot = lRot;
