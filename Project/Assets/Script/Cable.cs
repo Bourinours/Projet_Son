@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cable : ScriptableObject
+public class Cable : MonoBehaviour
 {
 	public int index;
 }
