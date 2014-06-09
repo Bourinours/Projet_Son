@@ -52,37 +52,66 @@ public class GameManager : MonoBehaviour {
             etap5();
         else if (mState == eState._ETAP6_)
             etap6();
-//        source.SetSourceEvent(mEvent[0]);
     }
 
     private void etap1()
     {
-
+        if (mObjects[0].victoryState() && mObjects[1].victoryState())
+        {
+            mObjects[0].activeActionMutex();
+            mObjects[1].activeActionMutex();
+            mState = eState._ETAP2_;
+        }
     }
 
     private void etap2()
     {
-
+        if (mObjects[2].victoryState() && mObjects[3].victoryState())
+        {
+            mObjects[2].activeActionMutex();
+            mObjects[3].activeActionMutex();
+            mState = eState._ETAP3_;
+        }
     }
 
     private void etap3()
     {
-
+        if (mObjects[4].victoryState() && mObjects[5].victoryState())
+        {
+            mObjects[4].activeActionMutex();
+            mObjects[5].activeActionMutex();
+            mState = eState._ETAP4_;
+        }
     }
 
     private void etap4()
     {
-
+        if (mObjects[6].victoryState() && mObjects[7].victoryState())
+        {
+            mObjects[6].activeActionMutex();
+            mObjects[7].activeActionMutex();
+            mState = eState._ETAP5_;
+        }
     }
 
     private void etap5()
     {
-
+        if (mObjects[8].victoryState())
+        {
+            mObjects[8].activeActionMutex();
+            mState = eState._ETAP6_;
+        }
     }
 
     private void etap6()
     {
-
+        if (mObjects[9].victoryState() && mObjects[10].victoryState())
+        {
+            mObjects[9].activeActionMutex();
+            mObjects[10].activeActionMutex();
+            mState = eState._ETAP1_;
+            mEnd = true;
+        }
     }
 
     private void end()
