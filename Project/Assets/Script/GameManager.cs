@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public List<FmodEvent> mEtap5;
     public List<FmodEvent> mEtap6;
     private eState mState;
+    private bool mBegin = true;
     
     private bool mEnd = false;
     private enum eState
@@ -32,11 +33,20 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (mBegin)
+            begin();
         if (!mEnd)
             updateState();
         else
             end();
 	}
+
+    private void begin()
+    {
+        source.SetSourceEvent(mEtap1[0]);
+        source.Play();
+        mBegin = false;
+    }
 
     private void updateState()
     {
@@ -60,6 +70,9 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[0].activeActionMutex();
             mObjects[1].activeActionMutex();
+            source.Stop();
+            source.SetSourceEvent(mEtap2[0]);
+            source.Play();
             mState = eState._ETAP2_;
         }
     }
@@ -70,6 +83,9 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[2].activeActionMutex();
             mObjects[3].activeActionMutex();
+            source.Stop();
+            source.SetSourceEvent(mEtap3[0]);
+            source.Play();
             mState = eState._ETAP3_;
         }
     }
@@ -80,6 +96,9 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[4].activeActionMutex();
             mObjects[5].activeActionMutex();
+            source.Stop();
+            source.SetSourceEvent(mEtap4[0]);
+            source.Play();
             mState = eState._ETAP4_;
         }
     }
@@ -90,6 +109,9 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[6].activeActionMutex();
             mObjects[7].activeActionMutex();
+            source.Stop();
+            source.SetSourceEvent(mEtap5[0]);
+            source.Play();
             mState = eState._ETAP5_;
         }
     }
@@ -99,6 +121,9 @@ public class GameManager : MonoBehaviour {
         if (mObjects[8].victoryState())
         {
             mObjects[8].activeActionMutex();
+            source.Stop();
+            source.SetSourceEvent(mEtap6[0]);
+            source.Play();
             mState = eState._ETAP6_;
         }
     }
@@ -110,6 +135,9 @@ public class GameManager : MonoBehaviour {
             mObjects[9].activeActionMutex();
             mObjects[10].activeActionMutex();
             mState = eState._ETAP1_;
+            source.Stop();
+            source.SetSourceEvent(mEtap6[7]);
+            source.Play();
             mEnd = true;
         }
     }
