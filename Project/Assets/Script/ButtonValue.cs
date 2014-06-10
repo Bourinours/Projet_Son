@@ -36,7 +36,10 @@ public class ButtonValue : Interaction
 			return;
 		value = objSound.GetParameterValue(paramSound);
 		value += incr;
-		objSound.SetParameterValue(paramSound, Mathf.Clamp(value, objSound.GetParameterMinRange(paramSound), objSound.GetParameterMaxRange(paramSound)));
+		if (value > objSound.GetParameterMaxRange(paramSound) || value < objSound.GetParameterMinRange(paramSound))
+			this.ActiveDialog(eventDialog[1], true);
+		else
+			objSound.SetParameterValue(paramSound, Mathf.Clamp(value, objSound.GetParameterMinRange(paramSound), objSound.GetParameterMaxRange(paramSound)));
 	}
 
     public override bool victoryState()
@@ -51,7 +54,7 @@ public class ButtonValue : Interaction
 		if (mActionMutex)
 			return;
 		Debug.Log("TriggerEnter " + col.name);
-		this.ActiveDialog();
+		this.ActiveDialog(eventDialog[0], false);
 	}
 }
 

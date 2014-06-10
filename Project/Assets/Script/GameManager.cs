@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour {
         _ETAP3_,
         _ETAP4_,
         _ETAP5_,
-        _ETAP6_
+        _ETAP6_,
+		_FINISH_
     };
 
 	// Use this for initialization
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if (mState == eState._FINISH_)
+			return;
         if (mBegin)
             begin();
         if (!mEnd)
@@ -160,7 +163,7 @@ public class GameManager : MonoBehaviour {
             mObjects[6].activeActionMutex();
             mObjects[7].activeActionMutex();
 			if (dialogue == false)
-			{	
+			{
 				this.SetDialog(mEtap5[0]);
 				mState = eState._ETAP5_;
 			}
@@ -186,17 +189,29 @@ public class GameManager : MonoBehaviour {
         {
             mObjects[9].activeActionMutex();
             mObjects[10].activeActionMutex();
-            mState = eState._ETAP1_;
-            source.Stop();
-            source.SetSourceEvent(mEtap6[7]);
-            source.Play();
             mEnd = true;
         }
     }
 
-    private void end()
+    public void end(bool win = true)
     {
         Debug.Log("End");
+		if (win)
+		{
+			source.Stop();
+			source.SetSourceEvent(mEtap6[7]);
+			source.Play();
+		}
+		else
+		{
+			mEnd = true;
+			mObjects[9].activeActionMutex();
+			mObjects[10].activeActionMutex();
+			source.Stop();
+			source.SetSourceEvent(mEtap6[3]);
+			source.Play();
+		}
+		mState = eState._FINISH_;
     }
 
 	public bool SetDialog(FmodEvent eventDialog, bool stop = false)

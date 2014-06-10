@@ -19,5 +19,5 @@ public class ButtonOnOFF : Interaction
     public override bool victoryState()
     {
         return base.victoryState();
-    } 
+    }
 }

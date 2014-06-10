@@ -28,7 +28,7 @@ public class Plug : Interaction
 			wandGrab.GetComponent<Cable>().index = 0;
 			this.impact.Stop();
 			this.mState = true;
-			this.ActiveDialog();
+			this.ActiveDialog(eventDialog[0]);
 		}
 		else
 			this.source.SetParameterValue(paramSound, 5);

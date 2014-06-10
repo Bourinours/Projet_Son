@@ -11,8 +11,8 @@ public class Potentio : Interaction
     private void Start()
     {
         float value = 4.0f;
-        while (value >= 4.0f && value <= 7.0f)
-            value = Random.Range(3.0f, 8.0f);
+        while (value >= 5.0f && value <= 6.0f)
+            value = Random.Range(0.0f, 10.0f);
         obj.SetParameterValue(paramSound, Mathf.Clamp(value, obj.GetParameterMinRange(paramSound), obj.GetParameterMaxRange(paramSound)));
     }
 
@@ -67,4 +67,11 @@ public class Potentio : Interaction
             return true;
         return false;
     }
+
+	public override void desactiveActionMutex()
+	{
+		mActionMutex = false;
+		if (source != null)
+			obj.Play();
+	}
 }

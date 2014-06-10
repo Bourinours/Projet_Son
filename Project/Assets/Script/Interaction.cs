@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Interaction : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Interaction : MonoBehaviour
 	public FmodEventAudioSource impact;
 	public GameObject wandGrab = null;
 	public GameObject charactere;
-	public FmodEvent eventDialog;
+	public List<FmodEvent> eventDialog;
 
 	#endregion
 
@@ -64,17 +65,17 @@ public class Interaction : MonoBehaviour
         return true;
     }
 
-    public void activeActionMutex()
+    public virtual void activeActionMutex()
     {
         mActionMutex = true;
     }
 
-	public void desactiveActionMutex()
+	public virtual void desactiveActionMutex()
 	{
 		mActionMutex = false;
 	}
 
-	protected virtual void ActiveDialog()
+	protected virtual void ActiveDialog(FmodEvent eventDialogue, bool stop = true)
 	{
 		if (this.charactere == null)
 			return;
@@ -83,6 +84,8 @@ public class Interaction : MonoBehaviour
 			return;
 		if (impact != null)
 			impact.Stop();
-		tmp.SetDialog(eventDialog, true);
+		if (eventDialog == null)
+			return;
+		tmp.SetDialog(eventDialogue, stop);
 	}
 }
