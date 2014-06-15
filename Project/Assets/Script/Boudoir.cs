@@ -21,6 +21,8 @@ public class Boudoir : MonoBehaviour
 
 	public bool CheckValue()
 	{
+		if (source != null && source.CurrentStatus == FmodEventAudioSource.Status.Stopped)
+			source.Play();
 		if (source != null && source.GetParameterValue("param01") == wantedValue)
 		{
 			if (eventDialog != null)

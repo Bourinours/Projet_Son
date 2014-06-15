@@ -8,14 +8,6 @@ public class ButtonValue : Interaction
 	public GameObject obj;
 	public string paramSound = "param01";
 
-    private void Start()
-    {
-		if (objSound != null)
-		{
-			objSound.playOnAwake = true;
-		}
-    }
-
 	public override void VRAction()
 	{
         if (mActionMutex)
